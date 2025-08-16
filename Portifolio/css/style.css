@@ -1,0 +1,915 @@
+/* =========================
+   RESET E FONTES
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+h1,
+h2 {
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #060715;
+    /* fundo escuro para destacar dourados */
+    color: #e6d08a;
+    /* texto principal (amarelado suave) */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   CLASSE GERAL DE "CARD"
+   - usado para criar blocos visuais separados
+   - controla padding, largura máxima e borda arredondada
+   ========================= */
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 12px;
+    max-width: 1100px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 215, 0, 0.06);
+}
+
+@media (min-width: 1024px) {
+    section.card {
+        margin-bottom: 80px;
+        /* espaço maior no desktop */
+    }
+}
+
+@media (max-width: 1023px) {
+    section.card {
+        margin-bottom: 40px;
+        /* espaço menor no tablet e mobile */
+    }
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(6, 7, 21, 0.95), rgba(6, 7, 21, 0.75));
+    border-bottom: 1px solid rgba(255, 215, 0, 0.06);
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: #ffd978;
+    font-family: 'ephesis', cursive;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+}
+
+.navbar a {
+    color: #e6d08a;
+    text-decoration: none;
+    transition: color .18s ease;
+}
+
+.navbar a:hover {
+    color: #ffedc6;
+}
+
+
+/* =========================
+   HERO (destaque inicial)
+   - hero-text: bloco com título e CTAs
+   - hero-image: local para ilustração
+   ========================= */
+/* =========================
+   HERO (com GIF/vídeo de fundo + gradiente overlay)
+   ========================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    z-index: 1;
+    /* garante que conteúdo fique acima do fundo */
+}
+
+/* Fundo animado (GIF ou imagem) */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../img/FieldsFireflies.png") center/cover no-repeat;
+    /* se quiser que o gif funcione no mobile, evite o fixed */
+    background-attachment: scroll;
+    z-index: -2;
+    /* fica no fundo de tudo */
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg,
+            rgba(12, 0, 34, 0.95) 0%,
+            rgba(3, 1, 7, 0.5) 50%,
+            rgba(4, 4, 31, 0.95) 100%);
+    background-size: 200% 200%;
+    animation: waveGradient 15s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Overlay gradiente por cima do fundo */
+@keyframes waveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* Conteúdo da hero sempre acima do overlay */
+.hero-content {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding: 0 8%;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.hero-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text .artist-name {
+    font-family: 'ephesis', cursive;
+    font-size: 4rem;
+    color: #ffd95e;
+}
+
+.hero-text .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons .btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 1rem;
+    transition: background 0.3s;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-buttons .btn.highlight {
+    background: #ffd95e;
+    color: #222;
+    font-weight: bold;
+}
+
+.hero-buttons .btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 350px;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 217, 94, 0.4);
+}
+
+/* Overlay escurecendo fundo */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        /* empilha no mobile */
+        gap: 2rem;
+        /* menos espaço no mobile */
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1;
+        /* coloca a imagem antes do texto */
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text .artist-name {
+        font-size: 3rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+
+/* animação muito sutil para dar vida ao brilho */
+@keyframes slow-glow {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8
+    }
+
+    50% {
+        transform: translateY(-4px) scale(1.02);
+        opacity: 1
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8
+    }
+}
+
+
+/* citação estilizada */
+.quote {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #ffd95e;
+    margin-bottom: 1rem;
+}
+
+/* Destaque para o nome do artista */
+.artist-name {
+    font-family: 'ephesto', cursive;
+    font-size: 1.8rem;
+    color: #ffd95e;
+}
+
+.quote-author {
+    font-weight: 600;
+    color: #ffd978;
+    margin-left: .6rem;
+    font-size: .95rem;
+}
+
+/* texto de introdução */
+.intro-text .lead {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: .6rem;
+}
+
+/* =========================
+   SOBRE
+   ========================= */
+#sobre {
+    padding: 25px;
+}
+
+.sobre-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sobre-content img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9370db;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.sobre-content.avatar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-content img:hover {
+    transform: scale(1.05);
+}
+
+.sobre-texto {
+    flex: 1;
+    min-width: 250px;
+}
+
+.sobre-texto p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.quote {
+    margin: 15px 0;
+    font-style: italic;
+    padding-left: 10px;
+    border-left: 3px solid #9370db;
+    color: #ccc;
+}
+
+.p-color {
+    color: #c0c0c0;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links a {
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    color: #9370db;
+    background: #222;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: white;
+    background: #9370db;
+    transform: translateY(-3px) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .sobre-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .artist-name {
+        text-align: center;
+    }
+
+    .sobre-content img {
+        height: 150px;
+        width: 150px;
+        margin-bottom: 15px;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .social-links a {
+        height: 40px;
+        width: 40px;
+        font-size: 22px;
+    }
+
+    .sobre-texto {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .quote {
+        border-left: none;
+        border-top: 3px solid #9370db;
+        padding-left: 0;
+        padding-top: 10px;
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================
+   GALERIA
+   ========================= */
+.portfolio-swiper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    max-height: 320px;
+}
+
+
+.img-container img {
+    width: auto;
+    max-width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.img-container:hover img {
+    transform: scale(1.05);
+}
+
+.img-container a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 320px;
+    /* mesma altura da imagem */
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+.img-container a img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+}
+
+/* responsividade mobile do carrossel */
+@media (max-width: 768px) {
+
+    .img-container,
+    .img-container a {
+        max-height: 350px;
+        /* aumenta altura mobile */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        /* centraliza horizontal */
+        align-items: flex-start;
+        /* mantém topo alinhado */
+    }
+
+    .img-container img,
+    .img-container a img {
+        width: auto;
+        height: 100%;
+        max-height: 350px;
+        object-fit: cover;
+        object-position: top center;
+        /* rosto no topo */
+    }
+}
+
+.img-container a:hover img {
+    transform: scale(1.05);
+}
+
+.img-container a .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(92, 0, 95, 0.6);
+    width: 100%;
+    color: #fff;
+    padding: 14px 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 0 0 12px 12px;
+}
+
+.img-container a:hover .overlay {
+    opacity: 1;
+    backdrop-filter: blur(4px);
+}
+
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(62, 0, 133, 0.6);
+    width: 100%;
+    color: #fff;
+    padding: 14px 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #b499eb;
+}
+
+.swiper-pagination-bullet {
+    background: #b499eb;
+}
+
+/* =========================
+   TABELA & TERMOS
+   ========================= */
+#comissoes {
+    padding: 25px;
+}
+
+#comissoes h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   RODAPÉ
+   ========================= */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    color: #bfb18a;
+    margin-top: 1.5rem;
+}
+
+/* =========================
+   RESPONSIVIDADE (ajustes simples)
+   ========================= */
+@media (max-width:900px) {
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 220px;
+        margin-top: 1rem;
+    }
+
+    .card {
+        margin: 1.2rem;
+        padding: 1.4rem;
+    }
+
+}
+
+
+.skill {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.skill span {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 22px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #6a5acd, #9370db, #6a5acd);
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
+    text-align: right;
+    padding-right: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #fff;
+    border-radius: 12px 0 0 12px;
+    width: 0%;
+    box-shadow: 0 0 8px rgba(147, 112, 219, 0.7);
+}
+
+/* Animação do gradiente */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+.termos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* espaçamento maior entre blocos */
+    padding: 20px;
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #9370db;
+}
+
+/* Cada bloco tem fundo escuro e sombra */
+
+.termo-bloco {
+    background: #1f1f1f;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+}
+
+.termo-bloco.dos-table {
+    background: none;
+    box-shadow: none;
+}
+
+/* Cabeçalhos com ícones e espaçamento */
+.termo-bloco h3 {
+    color: #9370db;
+    margin-bottom: 18px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Listas */
+.termo-bloco ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+.termo-bloco ul li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ícones nos itens */
+.termo-bloco ul li i {
+    min-width: 22px;
+    font-size: 1.15rem;
+}
+
+/* Verde para o que faço */
+.positivo ul li i.fa-circle-check {
+    color: #4CAF50;
+}
+
+/* Laranja para o que não faço */
+.negativo ul li i.fa-triangle-exclamation {
+    color: #FF9800;
+}
+
+/* Estilo para o container dos dois blocos lado a lado */
+.termos-duplos {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.termo-col {
+    background: #1f1f1f;
+    flex: 1 1 320px;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/*Btn voltar ao topo*/
+#btnTopo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #9470db79;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+#btnTopo.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#btnTopo:hover {
+    background: #7b5fcc;
+}
+
+/* Menu sanduíche */
+.nav-fixo {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+/* Botão hambúrguer escondido no desktop */
+#btnMenu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+#btnMenu span {
+    width: 25px;
+    height: 3px;
+    background: #9370db;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    /* Mostra botão menu */
+    #btnMenu {
+        display: flex;
+    }
+
+    /* Links fixos (sobre, contato) ficam visíveis no topo */
+    .nav-fixo {
+        gap: 20px;
+        margin-right: 20px;
+    }
+
+    /* Esconde os links do menu no topo */
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        right: -260px;
+        /* escondido inicialmente */
+        background: #1e1e1e;
+        height: calc(100% - 60px);
+        width: 250px;
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 20px;
+        border-radius: 0 0 0 12px;
+        box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        z-index: 9998;
+        overflow-y: auto;
+    }
+
+    /* Abre menu */
+    .nav-menu.open {
+        right: 0;
+    }
+
+    /* Ajusta nav-fixo para tamanho e cor */
+    .nav-fixo li a {
+        color: #e6d08a;
+        font-weight: 600;
+    }
+
+    .nav-menu li a {
+        color: #ddd;
+        font-weight: 500;
+        display: block;
+        padding: 10px 8px;
+        border-radius: 6px;
+    }
+
+    .nav-menu li a:hover {
+        background-color: #4b3d8c;
+    }
+}
+
+.bio {
+    text-align: justify;
+}
